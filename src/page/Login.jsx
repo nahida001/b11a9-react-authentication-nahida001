@@ -1,12 +1,14 @@
 import React, { use, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
    const {singIn}=use(AuthContext)
   const location=useLocation()
   const navigate=useNavigate()
   const [error,setError]=useState("");
+  
 console.log(location);
   const handleLogin=(e)=>{
     e.preventDefault()
@@ -37,9 +39,10 @@ console.log(location);
           <label className="label">Email</label>
           <input name="email" type="email" className="input" placeholder="Email" />
           <label className="label">Password</label>
-          <input name="password" type="password" className="input" placeholder="Password" />
+            <input name="password" type="password" className="input" placeholder="Password" required/>
+          
           <div><a className="link link-hover">Forgot password?</a></div>
-          <button className="btn btn-neutral mt-4">Login</button>
+          <button type="submit" className="btn btn-neutral mt-4">Login</button>
           <p>Dont’t Have An Account ? <Link to={`/Auth/Register`} className='text-secondary text-base font-semibold'>Register</Link></p>
         </fieldset>
       </form>

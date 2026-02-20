@@ -9,13 +9,14 @@ import Loading from "./page/Loading";
 import Login from "./page/Login";
 import Register from "./page/Register";
 import Privateprovider from "./Provider/Privateprovider";
+import About from "./page/About";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayOut/>,
     children:[
       {
-        path:"/",
+        path:"/home",
         element:<Home/>
       },
       {
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
   {
     path:"/",
     element:<h1>Error 404</h1>
+  },
+  {
+    path:"/about",
+    element:<About></About>
+
   }
 ]);
 

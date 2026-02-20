@@ -1,11 +1,11 @@
 import React from 'react';
-import { Navigate } from 'react-router';
-import Casual from '../HomeLayout/casual';
+import {  Navigate } from 'react-router';
+
 const Home = () => {
-    return  <Navigate to="category/0"></Navigate>
-        
+  return <Navigate to="/category/1"></Navigate>;
+};
        
 
-};
+
 
 export default Home;

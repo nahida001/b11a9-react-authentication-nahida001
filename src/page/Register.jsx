@@ -1,10 +1,12 @@
 import React, { use, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
   const {createUser,setuser,updateUser}= use(AuthContext)
   const [nameError,SetnameError]=useState("")
+  
   const navigates=useNavigate();
   const handleRegister=(e)=>{
      e.preventDefault()
@@ -20,7 +22,7 @@ const Register = () => {
      const email=e.target.email.value;
      const password=e.target.password.value;
      console.log(name,photourl,email,password);
-     createUser(email,password).then((result) => {
+      createUser(email,password).then((result) => {
     // Signed up 
     const user = result.user;
     updateUser({displayName:name,photoURL:photourl})
@@ -54,9 +56,15 @@ const Register = () => {
           <label className="label">Email</label>
           <input name="email" type="email" className="input" placeholder="Email" />
           <label className="label">Password</label>
-          <input name="password" type="password" className="input" placeholder="Password" />
-          <div><a className="link link-hover">Accept Term & Conditions</a></div>
-          <button className="btn btn-neutral mt-4">Sign Up</button>
+            <input name="password" type="password" className="input" placeholder="Password" required/>
+          
+          <div className='mt-2'>
+           <input type="checkbox" defaultChecked className="checkbox checkbox-sm mr-2" />
+            <a className="link link-hover">Accept Term & Conditions</a>
+            </div>
+          <button type='submit' className="btn btn-neutral mt-4">Sign Up</button>
+           <p className='pt-5 text-sm text-center font-semibold'>Allready Have An Account ? <Link to="/auth/login" className='text-secondary'>Login </Link></p>
+       
           </fieldset>
       </form>
     </div>

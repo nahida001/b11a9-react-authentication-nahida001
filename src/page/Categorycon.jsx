@@ -7,15 +7,15 @@ const Categorycon = () => {
     console.log(id,data);
     const [categoriscamp,setcategoriscamp]=useState([])
     useEffect(()=>{
-        if(id=="0"){
+        if(id == "0"){
             setcategoriscamp(data)
         }
         else{
-            const Bootcamp=data.filter((camp)=>camp.category_id==id)
+            const Bootcamp=data.filter((camp)=>camp.category_id == id)
             setcategoriscamp(Bootcamp)
         }
        
-    },[data])
+    },[id,data])
    
     return (
         <div>
