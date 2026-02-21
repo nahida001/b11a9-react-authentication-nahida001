@@ -11,7 +11,7 @@ const EventDetails = () => {
     const [event,setevent]=useState({})
     console.log(data,id);
     useEffect(()=>{
-           const eventDetails=data.find((singlevent)=>singlevent.id==id)
+           const eventDetails=data.find((singlevent)=>singlevent.id == id)
            setevent(eventDetails)
     },[data,id])
     return (
